@@ -1,5 +1,10 @@
 # SQL
 
+Installation has been done through Mysql 
+and first command for the mysql is 
+
+mysql -u root -p
+
 SQL is a standard language for accessing and manipulating databases.
 
 SQL stands for Structured Query Language
