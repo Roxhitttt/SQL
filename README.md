@@ -201,3 +201,59 @@ mysql> create procedure proc_grade(IN a int,IN b varchar(20),IN m int)
     -> $
 Query OK, 0 rows affected (0.03 sec)
 
+mysql> call proc_grade(1,'Ram',1500)$
++---------+------+-------+
+| stud_id | name | marks |
++---------+------+-------+
+|       1 | Ram  |  1500 |
++---------+------+-------+
+1 row in set (0.02 sec)
+
++---------+------+-------------+
+| stud_id | name | class       |
++---------+------+-------------+
+|       1 | Ram  | Distinction |
++---------+------+-------------+
+1 row in set (0.03 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call proc_grade(2,'Rohit',989)$
++---------+-------+-------+
+| stud_id | name  | marks |
++---------+-------+-------+
+|       1 | Ram   |  1500 |
+|       2 | Rohit |   989 |
++---------+-------+-------+
+2 rows in set (0.01 sec)
+
++---------+-------+-------------+
+| stud_id | name  | class       |
++---------+-------+-------------+
+|       1 | Ram   | Distinction |
+|       2 | Rohit | First Class |
++---------+-------+-------------+
+2 rows in set (0.03 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call proc_grade(3,'shafiq',899)$
++---------+--------+-------+
+| stud_id | name   | marks |
++---------+--------+-------+
+|       1 | Ram    |  1500 |
+|       2 | Rohit  |   989 |
+|       3 | shafiq |   899 |
++---------+--------+-------+
+3 rows in set (0.01 sec)
+
++---------+--------+--------------+
+| stud_id | name   | class        |
++---------+--------+--------------+
+|       1 | Ram    | Distinction  |
+|       2 | Rohit  | First Class  |
+|       3 | shafiq | Second Class |
++---------+--------+--------------+
+3 rows in set (0.03 sec)
+
+Query OK, 0 rows affected (0.04 sec)
