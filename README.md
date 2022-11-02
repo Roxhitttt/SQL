@@ -151,4 +151,53 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE NOT condition;
 
+_____________________________________________________________________
+
+use rohitdb;
+
+Database changed
+mysql> create table stud_marks (stud_id int not NULL,name varchar(50) not NULL, marks int not NULL);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc stud_marks;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| stud_id | int         | NO   |     | NULL    |       |
+| name    | varchar(50) | NO   |     | NULL    |       |
+| marks   | int         | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> create table Result (stud_id int not NULL,name varchar(50) not NULL,class varchar(50) not NULL);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc Result;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| stud_id | int         | NO   |     | NULL    |       |
+| name    | varchar(50) | NO   |     | NULL    |       |
+| class   | varchar(50) | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> delimiter $
+mysql> create procedure proc_grade(IN a int,IN b varchar(20),IN m int)
+    -> begin
+    -> declare c varchar(20);
+    -> if(m<=1500 and m>=990)then
+    -> set c='Distinction';
+    -> elseif(m<=989 and m>=900)then
+    -> set c='First Class';
+    -> elseif(m<=899 and m>=825)then
+    -> set c='Second Class';
+    -> end if;
+    -> insert into Result values(a,b,c);
+    -> insert into stud_marks values(a,b,m);
+    -> select * from stud_marks;
+    -> select * from Result;
+    -> end;
+    -> $
+Query OK, 0 rows affected (0.03 sec)
 
