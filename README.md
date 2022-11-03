@@ -385,5 +385,23 @@ mysql> create procedure p11(IN rno1 int,bname1 varchar(30))
     -> $
 Query OK, 0 rows affected (0.04 sec)
 
+mysql> call p11(2,'c++')$
++------+
+| diff |
++------+
+|  102 |
++------+
+1 row in set (0.00 sec)
 
++------+---------+------------+--------+--------+
+| rno  | name    | doi        | bname  | status |
++------+---------+------------+--------+--------+
+|    1 | Asmita  | 2022-06-25 | Java   | I      |
+|    2 | Nira    | 2022-07-24 | C++    | R      |
+|    3 | Amit    | 2022-09-23 | Python | I      |
+|    4 | Shivani | 2022-08-24 | mysql  | I      |
++------+---------+------------+--------+--------+
+4 rows in set (0.02 sec)
+
+Query OK, 0 rows affected (0.04 sec)
 
