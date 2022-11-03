@@ -277,6 +277,8 @@ After submitting the book starts will be changed from I to R if condition of fin
 SCHEMA:- 1] Borrower(Rool no, Date, Date of issue, Name of book,Status)
 2] fine (roll no, date , amt)
 
+FLowchart:-https://github.com/Roxhitttt/SQL/blob/28ce97a40bfd19309693d9c01a08677557f9e6d2/WhatsApp%20Image%202022-11-03%20at%2011.32.44.jpeg
+
 
 Function name: datediff():- The datediff() function returns the difference in days between two date values
 
