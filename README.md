@@ -369,3 +369,21 @@ mysql> call p10(2,'c++')$
 
 Query OK, 0 rows affected (0.01 sec)
 
+Now for updation of status I to R we have to modify erlier code:
+
+mysql> delimiter $
+mysql> create procedure p11(IN rno1 int,bname1 varchar(30))
+    -> begin
+    -> declare i_date date;
+    -> declare diff int;
+    -> select doi into i_date from b where rno=rno1 and bname=bname1;
+    -> select datediff(curdate(),i_date) into diff;
+    -> select diff;
+    -> update b set status='R' where rno=rno1 and bname=bname1;
+    -> select * from b;
+    -> end;
+    -> $
+Query OK, 0 rows affected (0.04 sec)
+
+
+
