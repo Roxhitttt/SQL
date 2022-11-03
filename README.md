@@ -152,6 +152,15 @@ FROM table_name
 WHERE NOT condition;
 
 _____________________________________________________________________
+problem Statement: Write a stored procidure namely proc_grade for the caterization of student 
+
+1st condition 1) if marks scored by students in examination is marks <=1500 & marks >=990 then students will be placed in diticntion category 
+2) if marks scored between marks 089 and 900 then category is first class
+3) if marks 899 and 825 then category is higher second class
+
+write a PL SQL block to use a procedure or function 
+
+Solution:
 
 use rohitdb;
 
@@ -257,3 +266,20 @@ mysql> call proc_grade(3,'shafiq',899)$
 3 rows in set (0.03 sec)
 
 Query OK, 0 rows affected (0.04 sec)
+
+
+_____________________________________________________________________
+Problem Statement: Write PL\SQL code block using control structure for following requriements:-
+
+Accept roll no and name of book from user check the no of days from the date of issue, if dates are between 15-30 then fine amount will be rs 50 per day, if no of days greater than 30 fin will be rs 5 per day and for days less then 30 rs 5 per day
+After submitting the book starts will be changed from I to R if condition of fine is ture the details will be stored into fine table
+
+SCHEMA:- 1] Borrower(Rool no, Date, Date of issue, Name of book,Status)
+2] fine (roll no, date , amt)
+
+
+Function name: datediff():- The datediff() function returns the difference in days between two date values
+
+Syntax:- DATEDIFF(date1,date2)
+eg:-1)SELECT DATEDIFF('2022-06-25','2022-06-23');
+2)SELECT DATEDIFF(curdate(),'2022-11-01');
