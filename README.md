@@ -285,3 +285,87 @@ Function name: datediff():- The datediff() function returns the difference in da
 Syntax:- DATEDIFF(date1,date2)
 eg:-1)SELECT DATEDIFF('2022-06-25','2022-06-23');
 2)SELECT DATEDIFF(curdate(),'2022-11-01');
+
+Solution:
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| rohitdb            |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use rohitdb;
+Database changed
+
+mysql> create table b (rno int, name varchar(30),doi date, bname varchar(20),status char(1));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table fine(rno int,Date date,days int,amt int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into b values(1,'Asmita','2022-06-25','Java','I');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into b values(2,'Nira','2022-07-24','C++','I');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into b values(3,'Amit','2022-09-23','Python','I');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into b values(4,'Shivani','2022-08-24','mysql','I');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from b;
++------+---------+------------+--------+--------+
+| rno  | name    | doi        | bname  | status |
++------+---------+------------+--------+--------+
+|    1 | Asmita  | 2022-06-25 | Java   | I      |
+|    2 | Nira    | 2022-07-24 | C++    | I      |
+|    3 | Amit    | 2022-09-23 | Python | I      |
+|    4 | Shivani | 2022-08-24 | mysql  | I      |
++------+---------+------------+--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT DATEDIFF('2022-06-25','2022-06-23');
++-------------------------------------+
+| DATEDIFF('2022-06-25','2022-06-23') |
++-------------------------------------+
+|                                   2 |
++-------------------------------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT DATEDIFF(curdate(),'2022-11-01');
++----------------------------------+
+| DATEDIFF(curdate(),'2022-11-01') |
++----------------------------------+
+|                                2 |
++----------------------------------+
+1 row in set (0.01 sec)
+
+mysql> delimiter $
+mysql> create procedure p10(IN rno1 int,bname1 varchar(30))
+    -> begin
+    -> declare i_date date;
+    -> declare diff int;
+    -> select doi into i_date from b where rno=rno1 and bname=bname1;
+    -> select datediff(curdate(),i_date) into diff;
+    -> select diff;
+    -> end;
+    -> $
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call p10(2,'c++')$
++------+
+| diff |
++------+
+|  102 |
++------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
